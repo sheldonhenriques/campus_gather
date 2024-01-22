@@ -1,6 +1,11 @@
+import 'package:campus_gather/resources/mongodb.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+void main() async {
+  await dotenv.load(fileName: ".env");
+  WidgetsFlutterBinding.ensureInitialized();
+  await MongoDatabase.connect();
   runApp(const MyApp());
 }
 
