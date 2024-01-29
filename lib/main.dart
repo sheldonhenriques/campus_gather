@@ -1,4 +1,4 @@
-import 'package:campus_gather/resources/mongodb.dart';
+import 'package:campus_gather/database/mongodb.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
