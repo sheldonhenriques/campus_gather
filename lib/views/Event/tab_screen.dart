@@ -16,6 +16,7 @@ class TabScreen extends StatefulWidget {
 class TabScreenState extends State<TabScreen> {
   List<Event> campusFeedEvents = [];
   List<Event> followingEvents = [];
+  List<Event> favoriteEvents = [];
 
   @override
   void initState() {
@@ -40,6 +41,7 @@ class TabScreenState extends State<TabScreen> {
         // Assign fetched events to campusFeedEvents and followingEvents
         campusFeedEvents = allEvents.toList();
         followingEvents = allEvents.toList();
+        favoriteEvents = allEvents.toList();
       });
     } catch (e) {
       setupLogger();
@@ -54,24 +56,25 @@ class TabScreenState extends State<TabScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Column(
         children: [
           Container(
             constraints: const BoxConstraints.expand(height: 50),
             child: const TabBar(
               tabs: [
-                Tab(text: "Campus feed"),
-                Tab(text: "Following"),
+                Tab(icon: Icon(Icons.rss_feed)),
+                Tab(icon: Icon(Icons.people)),
+                Tab(icon: Icon(Icons.star)),
               ],
             ),
           ),
           Expanded(
             child: TabBarView(
               children: [
-                ListElementTab(
-                    tabTitle: "Campus feed", events: campusFeedEvents),
+                ListElementTab(tabTitle: "Feed", events: campusFeedEvents),
                 ListElementTab(tabTitle: "Following", events: followingEvents),
+                ListElementTab(tabTitle: "Favorite", events: favoriteEvents),
               ],
             ),
           ),
