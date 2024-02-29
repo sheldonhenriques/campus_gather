@@ -1,4 +1,4 @@
-import 'package:campus_gather/views/Event/home_screen.dart';
+import 'package:campus_gather/views/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
